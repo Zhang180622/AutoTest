@@ -1,0 +1,74 @@
+#!/bin/bash
+# git bash学习
+
+# 为什么使用git
+# 开源的分布式版本管理系统
+# 开源项目集中的代码库
+# 所有略有规模的公司都在使用
+
+# github功能介绍
+# 记录多个版本
+# 查看历史操作，可以进行版本回退和前进控制
+# 多端共享代码，自动合并
+
+# github与svn
+# svn版本集中管理，所有代码都集中在中央仓库
+# git去中心化，每个服务器上都有一个完整的代码库
+
+# 安装git客户端（验证安装 git --version）并配置密钥(同linux生成密钥, github账号)：客户端生成密钥、github配置密钥（多账号配置了解）
+# linux：yum install -y git
+# windows: https://git-scm.com.downloads
+# mac: brew install git
+
+# 切换工作路径，克隆github项目
+# git clone github项目地址
+git clone git@github.com:Zhang180622/AutoTest.git  #ssh认证
+git clone https://github.com/Zhang180622/AutoTest.git  #https认证
+
+# 新增文件或目录
+git add file
+# 删除文件
+git rm file
+# 修改文件
+
+# 提交新增、修改、删除
+git commit -m "备注信息"
+# 或者
+git commit  #回车后提示输入备注
+
+# 将提交的内容推送到github
+git push
+git push origin branch_name
+
+# 查看git本地仓库状态
+git status
+# 更新本地代码
+git pull
+
+# 查看git帮助
+git --help
+
+# git分支操作
+# 查看分支
+git branch    #查看本地仓库分支情况
+git branch -a #查看远端仓库分支情况
+git chekout -b branch1  #创建本地分支
+git push --set-upstream origin branch1  #分支推送到远端，然后可以使用git branch -a查看远端分支（分支为新建分支时，使用该命令）
+
+# 删除本地分支
+git branch -d branch1  #-D 强制删除，一般用-d
+# 如果当前所在分支即为branch1，那么会报错，需要退出branch1，再删除branch1
+git checkout master     #切换到主分支
+git branch -d branch1   #切换后，再次执行删除，即可成功删除本地分支
+
+# 删除远程分支
+git branch -r -d origin/branch1   #删除远程分支
+git branch -a                     #查看远程分支
+git push origin:branch1           #将删除branch1的操作推送到远端，执行后发现报错
+git push origin :branch1          #再次执行，不报错（需要在origin后加一个空格）
+
+# 合并分支
+git checkout master  #切换至需要合并的目标分支，然后再执行merge操作
+git merge branch1    #合并分支branch1到master后，如果branch1不再需要，即可删除分支branch1
+# 合并分支 解决合并分支的冲突
+
