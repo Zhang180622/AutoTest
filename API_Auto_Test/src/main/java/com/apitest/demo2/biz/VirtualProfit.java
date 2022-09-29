@@ -12,15 +12,20 @@ import com.apitest.demo2.common.ApiBasic;
 
 
 public class VirtualProfit extends ApiBasic {
+
     private static final Logger logger = LoggerFactory.getLogger(VirtualProfit.class);
 
+    /**
+     *
+     * @param tacode    TA代码
+     * @param systime   净值日期
+     * @param fundcodes 虚拟计提产品代码，支持多个产品
+     */
     public static void virtualProfitDeal(String tacode, int systime, String fundcodes) {
-        //接口请求地址
         String URI = "/ta5-service/taut/com.hundsun.ta.ta5.biz.online.specialdeal.api.VirtualProfitService/virtualProfitDeal";
         String url = URL_B + URI;
         logger.info("URL = " + url);
 
-        //参数组装
         Map<String, Object> head = new HashMap();
         Map<String, Object> body = new HashMap();
         ArrayList FundCodeList = new ArrayList();
