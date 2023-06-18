@@ -4,6 +4,10 @@ import com.aventstack.extentreports.testng.listener.ExtentIReporterSuiteClassLis
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+/**
+ * @Author: zhangsp
+ * @comment: by nhs
+ */
 import static org.testng.Assert.fail;
 
 @Listeners(ExtentIReporterSuiteClassListenerAdapter.class)
